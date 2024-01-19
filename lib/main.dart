@@ -52,6 +52,7 @@ final GoRouter router = GoRouter(
         },
         routes: [
           GoRoute(path: '/', builder: (context, state) => const HomePage()),
+          GoRoute(path: '/login', builder: (context, state) => const HomePage()),
         ]),
   ],
 );
@@ -218,13 +219,13 @@ class _MyHomePageState extends State<MyHomePage>  with WindowListener {
   late final List<NavigationPaneItem> footerItems = [
     PaneItemSeparator(),
     PaneItem(
-      key: const ValueKey('/settings'),
+      key: const ValueKey('/login'),
       icon: const Icon(FluentIcons.settings),
-      title: const Text('设置'),
+      title:  Text('登录'),
       body: const SizedBox.shrink(),
       onTap: () {
-        if (GoRouterState.of(context).uri.toString() != '/settings') {
-          context.go('/settings');
+        if (GoRouterState.of(context).uri.toString() != '/login') {
+          context.go('/login');
         }
       },
     ),
